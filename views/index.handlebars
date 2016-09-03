@@ -1,0 +1,80 @@
+
+<br>
+
+	
+	  
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-4">
+
+        {{#each burgers}}
+          {{#unless this.devoured}}
+              
+            <p>
+              <a href="/burgers/updateT/{{this.burgerID}}"><button type="submit">Eat-Da --></button></a>
+              {{this.burgerName}} -- Id: {{this.burgerID}} 
+            </p>
+
+            <!-- <p><a href="/burgers/updateT/{{this.burgerID}}"><button type="submit">Devour it !</button></a>
+             Burger ID: {{this.burgerID}} |
+             Name: {{this.burgerName}} |  
+             Devoured: {{this.devoured}}  </p>  -->
+
+          {{/unless}}
+        {{/each }}
+
+      </div>
+
+      <div class="col-md-1"> </div>
+
+      <div class="col-md-4">
+
+        {{#each burgers}}
+         {{#if devoured}}
+
+            <p>
+              <a href="/burgers/updateF/{{this.burgerID}}"><button type="submit">Order 2nds --></button></a>
+              {{this.burgerName}} -- Id: {{this.burgerID}} 
+            </p>
+
+             <!-- <p><a href="/burgers/updateF/{{this.burgerID}}"><button type="submit">Order 2nds!</button></a>
+             Burger ID: {{this.burgerID}} |
+             Name: {{this.burgerName}} |  
+             Devoured: {{this.devoured}}  </p> -->
+
+          {{/if }}
+        {{/each }}
+        
+      </div>
+      <div class="col-md-1"> </div>
+      
+    </div>
+
+
+
+		<!-- -->
+ 
+
+
+
+		<!-- -->
+
+<form class="create-update-form " action="/burgers/create" method="POST">
+
+  <div class="form-group">
+    <label for="burger"></label>
+    <input type="text" class="center-block" id="burger" name="name" style="height:40px;width:400px;center:text; text-align:center;font-size:30px">
+  </div>
+  
+  <a href="/burgers/create"><button type="submit" class="btn btn-primary center-block">Submit</button></a>
+</form>
+
+		<!-- -->
+
+
+		<!-- -->
+
+
+<br> 
+<p style="text-align:center;"> Add/Submit another burger to the 'Eat-Da' burger list.<br>
+ Click the 'Order 2nds' button if you are still hungry.</p>
