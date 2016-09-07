@@ -13,6 +13,7 @@
 
 var express = require('express');
 var app = express();
+var connection = require('./config/connection');
 // Serve static content for the app from the 
 //    "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
@@ -65,6 +66,15 @@ app.use('/', routes);
 
 //--------------------------------------------------------
 var PORT = process.env.PORT || 3000; // Sets an initial port.
-app.listen(PORT, function() {
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('MySQL error connecting: ' + err.stack);
+    return;
+  };
+
+  console.log('MySQL connected as id ' + connection.threadId);
+  app.listen(PORT, function() {
 	console.log("Burger server App listening on PORT: " + PORT);
 });
+})

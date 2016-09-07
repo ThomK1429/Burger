@@ -48,13 +48,13 @@ if (process.env.JAWSDB_URL){
 
 // var connection = mysql.createConnection(connectionConfig);
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('MySQL error connecting: ' + err.stack);
-    return;
-  };
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error('MySQL error connecting: ' + err.stack);
+//     return;
+//   };
 
-  console.log('MySQL connected as id ' + connection.threadId);
-})
+//   console.log('MySQL connected as id ' + connection.threadId);
+// })
 
 module.exports = connection;
